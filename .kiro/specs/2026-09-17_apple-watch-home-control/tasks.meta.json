@@ -1,0 +1,661 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Scaffold the Xcode watchOS app project and folder structure": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445258
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653462363
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654131622
+      }
+    ],
+    "2.1 Implement DTOs and enums in `Models/DTOs.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445376
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654136059
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654517826
+      }
+    ],
+    "2.2 Implement UI row wrappers in `Models/Rows.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445450
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654624547
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654706720
+      }
+    ],
+    "2.3 Implement error and feedback types in `Models/Errors.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445518
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654137508
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654519141
+      }
+    ],
+    "3.1 Implement `Endpoint` enum in `Networking/Endpoint.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445586
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654625833
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654704461
+      }
+    ],
+    "3.2 Implement `RequestBuilder` in `Networking/RequestBuilder.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445651
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654723433
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654898992
+      }
+    ],
+    "4.1 Implement `SpeakerToggleMapper` in `Models/DTOs.swift` (or a dedicated file)": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445722
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654626803
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654705819
+      }
+    ],
+    "5.1 Implement `URLValidator` in `Utilities/URLValidator.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445786
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654138894
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654520559
+      }
+    ],
+    "5.2 Implement `ZurichTime` in `Utilities/ZurichTime.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445868
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654139842
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654521420
+      }
+    ],
+    "6. Checkpoint - Ensure all core tests pass": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653445935
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654908249
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655090801
+      }
+    ],
+    "7.1 Implement `SettingsStore` protocol + `LiveSettingsStore` in `Persistence/SettingsStore.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446001
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654141111
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654522658
+      }
+    ],
+    "7.2 Implement `KeychainStore` protocol + `LiveKeychainStore` in `Persistence/KeychainStore.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446058
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654534594
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654620191
+      }
+    ],
+    "8.1 Define `APIClient` protocol in `Networking/APIClient.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446121
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654724337
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654900020
+      }
+    ],
+    "8.2 Implement `LiveAPIClient` in `Networking/LiveAPIClient.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446183
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654909435
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655090064
+      }
+    ],
+    "9.1 Implement `AppModel` in `State/AppModel.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446247
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655096249
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655413755
+      }
+    ],
+    "9.2 Implement the poll driver in `AppModel`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446314
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655422475
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655532846
+      }
+    ],
+    "10.1 Implement `BlindViewModel` in `State/BlindViewModel.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446376
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655097722
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655415158
+      }
+    ],
+    "11.1 Implement `LampViewModel` in `State/LampViewModel.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446491
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655098550
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655416102
+      }
+    ],
+    "12.1 Implement `SpeakerViewModel` in `State/SpeakerViewModel.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446567
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655099805
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655417260
+      }
+    ],
+    "13. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446634
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655539590
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655729326
+      }
+    ],
+    "14.1 Implement `SetupView` in `Views/SetupView.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446697
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655540994
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655730343
+      }
+    ],
+    "14.2 Implement `BlindSection` in `Views/BlindSection.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446763
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655541876
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655731633
+      }
+    ],
+    "14.3 Implement `LampListView` in `Views/LampListView.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446836
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655542944
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655732583
+      }
+    ],
+    "14.4 Implement `SpeakerListView` in `Views/SpeakerListView.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446902
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655547044
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655734011
+      }
+    ],
+    "14.5 Implement `MessageBanner` in `Views/MessageBanner.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653446968
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655548094
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655734946
+      }
+    ],
+    "14.6 Implement `ControlView` in `Views/ControlView.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653447031
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655740717
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655859573
+      }
+    ],
+    "14.7 Add German label constants in `Strings.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653447094
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654725769
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654901342
+      }
+    ],
+    "15.1 Implement `RootView` and app entry in `Views/RootView.swift` and `WatchHomeControlApp.swift`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653447158
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655864691
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789656027010
+      }
+    ],
+    "16.1 Add ATS local-networking exception to `Info.plist`": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789653447218
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654726543
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654902231
+      }
+    ],
+    "5. Implement URL validation and time formatting utilities (pure core)": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654521510
+      }
+    ],
+    "7. Implement persistence layer": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654620260
+      }
+    ],
+    "4. Implement the speaker command mapper (pure core)": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654705896
+      }
+    ],
+    "2. Define core data models and error types": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654706791
+      }
+    ],
+    "3. Implement request building (pure core)": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654899072
+      }
+    ],
+    "16. Configure App Transport Security for cleartext LAN HTTP": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789654902283
+      }
+    ],
+    "8. Implement the networking client": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655090211
+      }
+    ],
+    "10. Implement the BlindViewModel": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655415228
+      }
+    ],
+    "11. Implement the LampViewModel": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655416169
+      }
+    ],
+    "12. Implement the SpeakerViewModel": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655417332
+      }
+    ],
+    "9. Implement the AppModel (routing, health, auth, poll driver)": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655532947
+      }
+    ],
+    "14. Implement SwiftUI views": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789655859692
+      }
+    ],
+    "15. Wire the app entry point, routing, and poll lifecycle": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789656027110
+      }
+    ],
+    "17. Final checkpoint - Ensure all tests pass and the app builds": [
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789656045354
+      },
+      {
+        "executionId": "cc214ff9-8e65-4b68-bd53-68b1fd98d255",
+        "chatSessionId": "sess_75494fb3-e134-4f2a-b6f9-d29fb7d40185",
+        "timestamp": 1789656193899
+      }
+    ],
+    "18.1 Add the redeem endpoint to request building": [
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789807911586
+      },
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808007229
+      }
+    ],
+    "18.2 Add the `PairingCodeResponse` DTO": [
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789807914879
+      },
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808010500
+      }
+    ],
+    "18.3 Extend `APIClient`/`LiveAPIClient` with `redeemPairingCode`": [
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808015228
+      },
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808207100
+      }
+    ],
+    "18.4 Update `SetupError` and rework `AppModel.submitSetup`": [
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808210403
+      },
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808370583
+      }
+    ],
+    "18.5 Convert `SetupView` to a Pairing_Code field": [
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808373843
+      },
+      {
+        "executionId": "ced68d2b-acce-4367-9a46-54933f4a0888",
+        "chatSessionId": "sess_0e368f56-017c-4475-9fda-d6572f530830",
+        "timestamp": 1789808501485
+      }
+    ]
+  }
+}
