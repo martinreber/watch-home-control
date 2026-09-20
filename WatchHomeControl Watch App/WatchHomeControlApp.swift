@@ -31,25 +31,6 @@ struct WatchHomeControlApp: App {
         let keychain = LiveKeychainStore()
         let api = LiveAPIClient(settings: settings, keychain: keychain)
 
-        #if DEBUG
-        // Debug-only convenience for the watchOS Simulator, where entering an
-        // API_Key by hand (or via paste) is unreliable. When the app is launched
-        // with `WHC_DEBUG_API_KEY` set, seed the Keychain once so Setup is
-        // skipped; `WHC_DEBUG_BASE_URL` optionally overrides the Base_URL. This
-        // block is compiled out of Release builds entirely.
-        let env = ProcessInfo.processInfo.environment
-        if let debugBaseURL = env["WHC_DEBUG_BASE_URL"],
-           case .success(let url) = URLValidator.validate(debugBaseURL) {
-            settings.setBaseURL(url)
-        }
-        if let debugKey = env["WHC_DEBUG_API_KEY"] {
-            let trimmed = debugKey.trimmingCharacters(in: .whitespacesAndNewlines)
-            if !trimmed.isEmpty {
-                try? keychain.saveAPIKey(trimmed)
-            }
-        }
-        #endif
-
         _model = State(initialValue: AppModel(api: api, keychain: keychain, settings: settings))
     }
 

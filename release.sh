@@ -19,7 +19,9 @@
 #   redeploy             uninstall + clean build + install (required after icon change).
 #   icon                 Regenerate AppIcon.png from the home-control UI icon.
 #   verify-icon          Check the icon compiled into the built .app bundle.
-#   test                 Run the test suite on a watchOS Simulator.
+#   test  [xcodebuild args]   Run the test suite on a watchOS Simulator. Extra
+#                        args are passed through, e.g. for a fast single-test
+#                        loop: ./release.sh test -only-testing:WatchHomeControlTests/URLValidatorPropertyTests
 #   pair                 Mint a backend pairing code (needs API_KEY env or arg).
 #   status               Show resolved device + whether the app is installed.
 #
@@ -38,6 +40,7 @@ PROJECT="WatchHomeControl.xcodeproj"
 SCHEME="WatchHomeControl Watch App"
 BUNDLE_ID="ch.reber.watchhomecontrol.watchkitapp"
 DERIVED="build/cli-device"
+TEST_DERIVED="build/cli-test-liveapi"
 APP_PATH="${DERIVED}/Build/Products/Debug-watchos/WatchHomeControl Watch App.app"
 SIM_NAME="Apple Watch Ultra 2 (49mm)"
 DEFAULT_BASE_URL="http://192.168.1.122:8080"
@@ -174,11 +177,16 @@ cmd_verify_icon() {
 
 cmd_test() {
   cd "$REPO_ROOT"
+  # Pre-warm the simulator so xcodebuild doesn't pay a cold-boot wait, and pin
+  # derived data locally so incremental compilation is reused across runs.
+  xcrun simctl boot "$SIM_NAME" >/dev/null 2>&1 || true
   log "Running tests on simulator '${SIM_NAME}'"
   xcodebuild test \
     -project "$PROJECT" \
     -scheme "$SCHEME" \
-    -destination "platform=watchOS Simulator,name=${SIM_NAME}"
+    -destination "platform=watchOS Simulator,name=${SIM_NAME}" \
+    -derivedDataPath "${TEST_DERIVED}" \
+    "$@"
   ok "Tests passed"
 }
 
