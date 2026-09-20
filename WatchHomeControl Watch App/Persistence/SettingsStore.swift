@@ -9,7 +9,7 @@ import Foundation
 
 /// Persists and reads the configurable Base_URL the Watch_App targets.
 protocol SettingsStore: Sendable {
-    /// The configured Base_URL, defaulting to `http://192.168.1.122:8080` when
+    /// The configured Base_URL, defaulting to `https://192.168.1.122:8443` when
     /// absent or unparseable (Req 1.7).
     var baseURL: URL { get }
 
@@ -23,7 +23,7 @@ protocol SettingsStore: Sendable {
 /// any absent or unparseable value falls back to the default (Req 1.6/1.7).
 final class LiveSettingsStore: SettingsStore, @unchecked Sendable {
     /// The default Base_URL used when none is configured (Req 1.7).
-    static let defaultBaseURL = URL(string: "http://192.168.1.122:8080")!
+    static let defaultBaseURL = URL(string: "https://192.168.1.122:8443")!
 
     private static let baseURLKey = "base_url"
 

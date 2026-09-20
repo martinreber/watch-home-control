@@ -29,7 +29,7 @@
 #   WATCH_UDID   Target Watch UDID. If unset, the first connected physical
 #                Apple Watch is auto-detected.
 #   API_KEY      Backend API key, used by the `pair` command.
-#   BASE_URL     Backend base URL for `pair` (default http://192.168.1.122:8080).
+#   BASE_URL     Backend base URL for `pair` (default https://192.168.1.122:8443).
 
 set -euo pipefail
 
@@ -43,7 +43,7 @@ DERIVED="build/cli-device"
 TEST_DERIVED="build/cli-test-liveapi"
 APP_PATH="${DERIVED}/Build/Products/Debug-watchos/WatchHomeControl Watch App.app"
 SIM_NAME="Apple Watch Ultra 2 (49mm)"
-DEFAULT_BASE_URL="http://192.168.1.122:8080"
+DEFAULT_BASE_URL="https://192.168.1.122:8443"
 
 # Icon source (canonical home-control PWA icon) + destination in this repo.
 ICON_SRC="/Users/martin/git/raspberry/home-control/web/icon-512.png"
