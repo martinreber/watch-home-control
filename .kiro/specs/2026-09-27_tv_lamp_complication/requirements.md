@@ -255,4 +255,3 @@ enter a new pairing code.
 4. THE Shared_Sources SHALL be compiled into the Watch_App target, the Widget_Extension target, and the test target from a single copy of each file, with no duplicated or forked source files.
 5. THE existing test target SHALL continue to build and run the full test suite after the Shared_Sources are added to the Widget_Extension target.
 6. THE Watch_App SHALL declare the URL scheme `watchhomecontrol` so the Setup_Deep_Link resolves to the Watch_App.
-
