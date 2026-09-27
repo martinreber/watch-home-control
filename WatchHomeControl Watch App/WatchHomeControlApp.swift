@@ -36,9 +36,8 @@ struct WatchHomeControlApp: App {
         let settings = LiveSettingsStore()
         let keychain = LiveKeychainStore()
         let api = LiveAPIClient(settings: settings, keychain: keychain)
-        let publisher = ComplicationPublisher(refresher: LiveComplicationRefresher())
 
-        _model = State(initialValue: AppModel(api: api, keychain: keychain, settings: settings, publisher: publisher))
+        _model = State(initialValue: AppModel(api: api, keychain: keychain, settings: settings))
     }
 
     var body: some Scene {

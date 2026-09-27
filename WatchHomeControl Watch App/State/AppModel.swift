@@ -62,45 +62,25 @@ final class AppModel {
     /// view to bind its Base_URL input.
     var baseURLField: String
 
+    /// Incremented for each complication launch so ControlView can scroll to
+    /// the lamp controls even when it is already visible.
+    private(set) var lampFocusRequestID = 0
+
     // MARK: - Dependencies
 
     let api: APIClient
     let keychain: KeychainStore
     let settings: SettingsStore
-    /// Drives the Complication's Foreground_Refresh and immediate reloads
-    /// (Req 6.4, 6.5, 7.11, 7.12). `nil` in tests that do not exercise the
-    /// Complication.
-    private let publisher: ComplicationPublisher?
 
     init(
         api: APIClient,
         keychain: KeychainStore,
-        settings: SettingsStore,
-        publisher: ComplicationPublisher? = nil
+        settings: SettingsStore
     ) {
         self.api = api
         self.keychain = keychain
         self.settings = settings
-        self.publisher = publisher
         self.baseURLField = settings.baseURL.absoluteString
-    }
-
-    // MARK: - Complication refresh (Req 7.11, 7.12)
-
-    /// Reports the TV_Lampe's current power from a Poll_Cycle fetch, driving a
-    /// throttled Foreground_Refresh (Req 7.12, 7.13).
-    private func notifyComplication(ofFetchedLamps lamps: [LampDTO]) {
-        publisher?.publish(tvLampPower: TVLampSelector.select(from: lamps).power)
-    }
-
-    /// Reports a lamp command's returned state so an in-app TV-Lampe toggle
-    /// reaches the Complication without waiting for the next Poll_Cycle
-    /// (Req 7.11, 7.12).
-    func notifyLampUpdated(_ lamp: LampDTO) {
-        guard lamp.displayName.range(of: TVLampSelector.nameNeedle, options: .caseInsensitive) != nil else {
-            return
-        }
-        publisher?.publish(tvLampPower: lamp.state.power)
     }
 
     // MARK: - Launch (Req 1.1 / 1.9 / 3)
@@ -191,7 +171,6 @@ final class AppModel {
 
         authErrorMessage = nil
         route = .control
-        publisher?.publishImmediately()
 
         // Verify reachability now that a Base_URL + key are configured (Req 3).
         await runHealthCheck()
@@ -237,6 +216,18 @@ final class AppModel {
         route = .setup
     }
 
+    /// Opens the main control list with the lamp section focused. If pairing
+    /// is missing, retain the existing Setup path instead.
+    func openLampsFromComplication() {
+        guard keychain.readAPIKey() != nil else {
+            route = .setup
+            return
+        }
+        authErrorMessage = nil
+        route = .control
+        lampFocusRequestID += 1
+    }
+
     /// Whether the Setup_Screen can be dismissed back to the control screen.
     ///
     /// Cancelling only makes sense once a credential has been paired: on the
@@ -267,7 +258,6 @@ final class AppModel {
         authErrorMessage = Strings.pairingInvalid
         baseURLField = settings.baseURL.absoluteString
         route = .setup
-        publisher?.publishImmediately()
     }
 
     // MARK: - Health check (Req 3)
@@ -350,7 +340,6 @@ final class AppModel {
                 // are already main-actor isolated.
                 if case .success(let fetchedLamps) = lampOutcome {
                     lamps.applyPoll(fetchedLamps)
-                    self.notifyComplication(ofFetchedLamps: fetchedLamps)
                 }
                 if case .success(let fetchedSpeakers) = speakerOutcome {
                     speakers.applyPoll(fetchedSpeakers)

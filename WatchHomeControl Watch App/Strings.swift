@@ -100,6 +100,6 @@ enum Strings {
     static let complicationLabel = "TV"
     /// Watch-face gallery display name for the Complication.
     static let complicationDisplayName = "TV-Lampe"
-    /// Watch-face gallery description for the Complication.
-    static let complicationDescription = "Zeigt den Status der TV-Lampe und schaltet sie ein oder aus."
+    /// Watch-face gallery description for the Complication shortcut.
+    static let complicationDescription = "Öffnet die Steuerung der TV-Lampe."
 }

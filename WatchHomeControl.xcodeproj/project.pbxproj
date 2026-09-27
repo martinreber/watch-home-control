@@ -67,6 +67,13 @@
 			membershipExceptions = (
 				Assets.xcassets,
 				Info.plist,
+				Models,
+				Networking,
+				Persistence,
+				State,
+				Utilities,
+				Views,
+				"WatchHomeControl Watch App.entitlements",
 				WatchHomeControlApp.swift,
 			);
 			target = A2000102000000000000EE01 /* WatchHomeControlComplication */;

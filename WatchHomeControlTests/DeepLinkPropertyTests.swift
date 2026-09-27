@@ -80,4 +80,13 @@ struct DeepLinkPropertyTests {
         #expect(!DeepLink.isSetup(URL(string: "https://setup")!))
         #expect(!DeepLink.isSetup(URL(string: "watchhomecontrol://config")!))
     }
+
+    @Test("The TV-Lampe shortcut link matches watchhomecontrol://lamps case-insensitively")
+    func lampsDeepLinkMatchesOnlyItsRoute() {
+        #expect(DeepLink.isLamps(DeepLink.lampsURL))
+        #expect(DeepLink.isLamps(URL(string: "WATCHHOMECONTROL://LAMPS")!))
+        #expect(!DeepLink.isLamps(DeepLink.setupURL))
+        #expect(!DeepLink.isLamps(URL(string: "https://lamps")!))
+        #expect(!DeepLink.isLamps(URL(string: "watchhomecontrol://speakers")!))
+    }
 }

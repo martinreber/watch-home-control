@@ -98,4 +98,32 @@ struct ComplicationRoutingExampleTests {
         #expect(model.authErrorMessage == nil)
         #expect(model.baseURLField == ComplicationRoutingExampleTests.baseURL.absoluteString)
     }
+
+    @Test("A paired TV-Lampe shortcut opens Control and requests focus on the Lamps section")
+    @MainActor
+    func pairedShortcutOpensAndFocusesLamps() {
+        let model = makeModel()
+        model.route = .setup
+
+        model.openLampsFromComplication()
+
+        #expect(model.route == .control)
+        #expect(model.lampFocusRequestID == 1)
+
+        // Reopening the launcher URL while Control is already visible must
+        // still produce a new scroll request.
+        model.openLampsFromComplication()
+        #expect(model.lampFocusRequestID == 2)
+    }
+
+    @Test("An unpaired TV-Lampe shortcut opens Setup instead of the control list")
+    @MainActor
+    func unpairedShortcutOpensSetup() {
+        let model = makeModel(storedKey: nil)
+
+        model.openLampsFromComplication()
+
+        #expect(model.route == .setup)
+        #expect(model.lampFocusRequestID == 0)
+    }
 }

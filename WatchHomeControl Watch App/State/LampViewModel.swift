@@ -33,14 +33,8 @@ final class LampViewModel {
     var feedback: Feedback?
 
     private let api: APIClient
-    /// Notified with the returned lamp state after a successful toggle, so an
-    /// in-app command can reach the Complication without waiting for the next
-    /// Poll_Cycle (Req 7.11, 7.12). No-op by default.
-    private let onCommandSucceeded: (LampDTO) -> Void
-
-    init(api: APIClient, onCommandSucceeded: @escaping (LampDTO) -> Void = { _ in }) {
+    init(api: APIClient) {
         self.api = api
-        self.onCommandSucceeded = onCommandSucceeded
     }
 
     /// Loads the lamp list via `GET /lamps` with a 10s deadline (Req 5.1).
@@ -91,7 +85,6 @@ final class LampViewModel {
                 lamps[current].displayedPower = updated.state.power
                 lamps[current].isPending = false
             }
-            onCommandSucceeded(updated)
         } catch {
             // Revert the row to its exact prior value with pending cleared
             // (Req 6.5/6.6). Re-find by id in case ordering shifted.

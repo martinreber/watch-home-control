@@ -41,10 +41,7 @@ struct RootView: View {
 
     init(model: AppModel) {
         self.model = model
-        _lampVM = State(initialValue: LampViewModel(
-            api: model.api,
-            onCommandSucceeded: { [model] lamp in model.notifyLampUpdated(lamp) }
-        ))
+        _lampVM = State(initialValue: LampViewModel(api: model.api))
         _speakerVM = State(initialValue: SpeakerViewModel(api: model.api))
     }
 
@@ -72,11 +69,14 @@ struct RootView: View {
         .onChange(of: model.route) { _, newRoute in
             updatePolling(for: scenePhase, route: newRoute)
         }
-        // The Complication opens this URL while Unpaired or after an Auth_Error
-        // so the user can (re-)enter a Pairing_Code (Req 6.2/6.3).
+        // The Complication opens either Setup or the Lampen section through its
+        // app deep link.
         .onOpenURL { url in
-            guard DeepLink.isSetup(url) else { return }
-            model.openSetupFromComplication()
+            if DeepLink.isSetup(url) {
+                model.openSetupFromComplication()
+            } else if DeepLink.isLamps(url) {
+                model.openLampsFromComplication()
+            }
         }
     }
 

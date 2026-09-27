@@ -8,8 +8,8 @@ import SwiftUI
 
 struct TVLampWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: ComplicationKind.tvLamp, provider: TVLampTimelineProvider()) { entry in
-            TVLampComplicationView(entry: entry)
+        StaticConfiguration(kind: ComplicationKind.tvLamp, provider: TVLampTimelineProvider()) { _ in
+            TVLampComplicationView()
         }
         .configurationDisplayName(Strings.complicationDisplayName)
         .description(Strings.complicationDescription)

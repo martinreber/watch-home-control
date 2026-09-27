@@ -50,30 +50,42 @@ struct ControlView: View {
     }
 
     var body: some View {
-        // A single scrolling List is the watchOS-friendly host: each child view
-        // renders its own Section, except SpeakerListView which is wrapped here.
-        List {
-            BlindSection(viewModel: blindVM)
+        ScrollViewReader { proxy in
+            List {
+                BlindSection(viewModel: blindVM)
 
-            LampListView(viewModel: lampVM)
+                LampListView(viewModel: lampVM)
+                    .id(DeepLink.lampsTargetID)
 
-            Section(Strings.sectionSpeakers) {
-                SpeakerListView(viewModel: speakerVM)
-            }
-        }
-        .navigationTitle(Strings.appTitle)
-        .toolbar {
-            // Config affordance: re-present the Setup_Screen pre-filled with the
-            // current Base_URL for a Base_URL/API_Key change (Req 1.10).
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    model.openConfig()
-                } label: {
-                    Label(Strings.openConfig, systemImage: "gearshape")
+                Section(Strings.sectionSpeakers) {
+                    SpeakerListView(viewModel: speakerVM)
                 }
             }
+            .navigationTitle(Strings.appTitle)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        model.openConfig()
+                    } label: {
+                        Label(Strings.openConfig, systemImage: "gearshape")
+                    }
+                }
+            }
+            .onAppear {
+                scrollToLamps(using: proxy, animated: false)
+            }
+            .onChange(of: model.lampFocusRequestID) { _, _ in
+                scrollToLamps(using: proxy, animated: true)
+            }
         }
-        // Poll start/stop is owned by RootView's scenePhase logic (Req 9.1/9.6);
-        // ControlView intentionally does not drive the poll lifecycle.
+    }
+
+    private func scrollToLamps(using proxy: ScrollViewProxy, animated: Bool) {
+        guard model.lampFocusRequestID > 0 else { return }
+        if animated {
+            withAnimation { proxy.scrollTo(DeepLink.lampsTargetID, anchor: .top) }
+        } else {
+            proxy.scrollTo(DeepLink.lampsTargetID, anchor: .top)
+        }
     }
 }
