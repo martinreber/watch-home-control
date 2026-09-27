@@ -20,6 +20,20 @@
                ReferencedContainer = "container:WatchHomeControl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A1000102000000000000EE02"
+               BuildableName = "TVLampeComplication.appex"
+               BlueprintName = "TVLampeComplication"
+               ReferencedContainer = "container:WatchHomeControl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
