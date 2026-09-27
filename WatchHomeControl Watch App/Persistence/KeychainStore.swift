@@ -41,29 +41,59 @@ struct KeychainError: Error, Equatable {
 /// for a single generic-password item identified by
 /// service `"ch.reber.watchhomecontrol"` and account `"api_key"`. The key is
 /// stored UTF-8 encoded in the item's `kSecValueData`.
+///
+/// The item lives in the Shared_Keychain_Group so the Watch_App and the widget
+/// extension (a separate process) read the same credential (Req 7.1). An
+/// explicitly supplied `kSecAttrAccessGroup` is NOT auto-prefixed with the team
+/// identifier the way the default group is — the value MUST already be fully
+/// qualified, or every query fails with `errSecMissingEntitlement` (-34018)
+/// (Req 7.2). Every stored item also carries `kSecAttrAccessibleAfterFirstUnlock`
+/// so a widget timeline refresh can read it while the watch is locked (Req 7.3).
 final class LiveKeychainStore: KeychainStore, @unchecked Sendable {
     /// Keychain generic-password service identifier for this app's credential.
     static let service = "ch.reber.watchhomecontrol"
     /// Keychain generic-password account identifier for the API_Key item.
     static let account = "api_key"
+    /// Fully qualified Shared_Keychain_Group (team prefix `5V4FMXSU55`). MUST NOT
+    /// be passed unprefixed (Req 7.2).
+    static let accessGroup = "5V4FMXSU55.ch.reber.watchhomecontrol.shared"
 
     private let service: String
     private let account: String
+    private let accessGroup: String?
 
+    /// - Parameter accessGroup: The fully qualified Keychain access group, or
+    ///   `nil` to use the process's default (unshared) group. `nil` is used only
+    ///   to reach a pre-existing, non-shared legacy item (`LegacyStatePurge`).
     init(service: String = LiveKeychainStore.service,
-         account: String = LiveKeychainStore.account) {
+         account: String = LiveKeychainStore.account,
+         accessGroup: String? = LiveKeychainStore.accessGroup) {
         self.service = service
         self.account = account
+        self.accessGroup = accessGroup
     }
 
-    /// Query matching exactly this app's single generic-password item.
-    private var baseQuery: [String: Any] {
-        [
+    /// Query matching exactly this app's single generic-password item. Not
+    /// `private` so `@testable import` can assert its shape (Property 5)
+    /// without touching the Security framework.
+    var baseQuery: [String: Any] {
+        var query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service,
             kSecAttrAccount as String: account,
         ]
+        if let accessGroup {
+            query[kSecAttrAccessGroup as String] = accessGroup
+        }
+        return query
     }
+
+    /// The accessibility attribute applied to every stored item (Req 7.3), as a
+    /// plain `String` rather than `CFString` (not `Sendable`) so this constant
+    /// stays concurrency-safe. A named constant (rather than an inline literal
+    /// in `saveAPIKey`) so `@testable import` can assert it without touching the
+    /// Security framework.
+    static let writeAccessible = kSecAttrAccessibleAfterFirstUnlock as String
 
     func readAPIKey() -> String? {
         var query = baseQuery
@@ -84,10 +114,15 @@ final class LiveKeychainStore: KeychainStore, @unchecked Sendable {
     func saveAPIKey(_ key: String) throws {
         let data = Data(key.utf8)
 
-        // Update in place if the item already exists; otherwise add it.
+        // Update in place if the item already exists; otherwise add it. Both
+        // paths (re)assert the after-first-unlock accessibility so an item
+        // created before this change is upgraded on its next save (Req 7.3).
         let updateStatus = SecItemUpdate(
             baseQuery as CFDictionary,
-            [kSecValueData as String: data] as CFDictionary
+            [
+                kSecValueData as String: data,
+                kSecAttrAccessible as String: Self.writeAccessible,
+            ] as CFDictionary
         )
 
         switch updateStatus {
@@ -96,6 +131,7 @@ final class LiveKeychainStore: KeychainStore, @unchecked Sendable {
         case errSecItemNotFound:
             var addQuery = baseQuery
             addQuery[kSecValueData as String] = data
+            addQuery[kSecAttrAccessible as String] = Self.writeAccessible
             let addStatus = SecItemAdd(addQuery as CFDictionary, nil)
             guard addStatus == errSecSuccess else {
                 throw KeychainError(status: addStatus)

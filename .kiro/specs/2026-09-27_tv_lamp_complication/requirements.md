@@ -249,7 +249,7 @@ enter a new pairing code.
 
 #### Acceptance Criteria
 
-1. THE project SHALL contain a new watchOS widget extension target embedded in the Watch_App, with bundle identifier `ch.reber.watchhomecontrol.watchkitapp.complication`, deployment target watchOS 11.0, Swift 6, and development team `5V4FMXSU55`.
+1. THE project SHALL contain a new watchOS widget extension target embedded in the Watch_App, with bundle identifier `ch.reber.watchhomecontrol.watchkitapp.tvlampcomplication`, deployment target watchOS 11.0, Swift 6, and development team `5V4FMXSU55`.
 2. THE Watch_App target and the Widget_Extension target SHALL each have a code-signing entitlements file declaring the Keychain access group `$(AppIdentifierPrefix)ch.reber.watchhomecontrol.shared` and the App Group `group.ch.reber.watchhomecontrol`.
 3. THE App ID used for both targets SHALL have the Keychain Sharing and App Groups capabilities enabled, and the provisioning profiles used by `release.sh` SHALL include them.
 4. THE Shared_Sources SHALL be compiled into the Watch_App target, the Widget_Extension target, and the test target from a single copy of each file, with no duplicated or forked source files.

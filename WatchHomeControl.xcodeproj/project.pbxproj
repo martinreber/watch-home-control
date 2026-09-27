@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A2000105000000000000EE01 /* WatchHomeControlComplication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A2000101000000000000EE01 /* WatchHomeControlComplication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A1000401000000000000EE01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -14,11 +18,33 @@
 			remoteGlobalIDString = A1000102000000000000EE01;
 			remoteInfo = "WatchHomeControl Watch App";
 		};
+		A2000103000000000000EE01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1000001000000000000EE01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2000102000000000000EE01;
+			remoteInfo = WatchHomeControlComplication;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A2000106000000000000EE01 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A2000105000000000000EE01 /* WatchHomeControlComplication.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A1000101000000000000EE01 /* WatchHomeControl Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchHomeControl Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1000103000000000000EE01 /* WatchHomeControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchHomeControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2000101000000000000EE01 /* WatchHomeControlComplication.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WatchHomeControlComplication.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,6 +55,22 @@
 			);
 			target = A1000102000000000000EE01 /* WatchHomeControl Watch App */;
 		};
+		A2000108000000000000EE01 /* Exceptions for "WatchHomeControlComplication" folder in "WatchHomeControlComplication" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A2000102000000000000EE01 /* WatchHomeControlComplication */;
+		};
+		A2000109000000000000EE01 /* Exceptions for "WatchHomeControl Watch App" folder in "WatchHomeControlComplication" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				Info.plist,
+				WatchHomeControlApp.swift,
+			);
+			target = A2000102000000000000EE01 /* WatchHomeControlComplication */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -36,6 +78,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				A1000901000000000000EE01 /* Exceptions for "WatchHomeControl Watch App" folder in "WatchHomeControl Watch App" target */,
+				A2000109000000000000EE01 /* Exceptions for "WatchHomeControl Watch App" folder in "WatchHomeControlComplication" target */,
 			);
 			path = "WatchHomeControl Watch App";
 			sourceTree = "<group>";
@@ -43,6 +86,14 @@
 		A1000602000000000000EE01 /* WatchHomeControlTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WatchHomeControlTests;
+			sourceTree = "<group>";
+		};
+		A2000107000000000000EE01 /* WatchHomeControlComplication */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A2000108000000000000EE01 /* Exceptions for "WatchHomeControlComplication" folder in "WatchHomeControlComplication" target */,
+			);
+			path = WatchHomeControlComplication;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,6 +113,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2000110000000000000EE01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000601000000000000EE01 /* WatchHomeControl Watch App */,
+				A2000107000000000000EE01 /* WatchHomeControlComplication */,
 				A1000602000000000000EE01 /* WatchHomeControlTests */,
 				A1000502000000000000EE01 /* Products */,
 			);
@@ -79,6 +138,7 @@
 			children = (
 				A1000101000000000000EE01 /* WatchHomeControl Watch App.app */,
 				A1000103000000000000EE01 /* WatchHomeControlTests.xctest */,
+				A2000101000000000000EE01 /* WatchHomeControlComplication.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,10 +153,12 @@
 				A1000701000000000000EE01 /* Sources */,
 				A1000301000000000000EE01 /* Frameworks */,
 				A1000801000000000000EE01 /* Resources */,
+				A2000106000000000000EE01 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A2000104000000000000EE01 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A1000601000000000000EE01 /* WatchHomeControl Watch App */,
@@ -131,6 +193,29 @@
 			productReference = A1000103000000000000EE01 /* WatchHomeControlTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A2000102000000000000EE01 /* WatchHomeControlComplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2000115000000000000EE01 /* Build configuration list for PBXNativeTarget "WatchHomeControlComplication" */;
+			buildPhases = (
+				A2000111000000000000EE01 /* Sources */,
+				A2000110000000000000EE01 /* Frameworks */,
+				A2000112000000000000EE01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A1000601000000000000EE01 /* WatchHomeControl Watch App */,
+				A2000107000000000000EE01 /* WatchHomeControlComplication */,
+			);
+			name = WatchHomeControlComplication;
+			packageProductDependencies = (
+			);
+			productName = WatchHomeControlComplication;
+			productReference = A2000101000000000000EE01 /* WatchHomeControlComplication.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -147,6 +232,9 @@
 					A1000104000000000000EE01 = {
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = A1000102000000000000EE01;
+					};
+					A2000102000000000000EE01 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -165,6 +253,7 @@
 			projectRoot = "";
 			targets = (
 				A1000102000000000000EE01 /* WatchHomeControl Watch App */,
+				A2000102000000000000EE01 /* WatchHomeControlComplication */,
 				A1000104000000000000EE01 /* WatchHomeControlTests */,
 			);
 		};
@@ -179,6 +268,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1000802000000000000EE01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2000112000000000000EE01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,6 +298,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2000111000000000000EE01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -209,6 +312,11 @@
 			isa = PBXTargetDependency;
 			target = A1000102000000000000EE01 /* WatchHomeControl Watch App */;
 			targetProxy = A1000401000000000000EE01 /* PBXContainerItemProxy */;
+		};
+		A2000104000000000000EE01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2000102000000000000EE01 /* WatchHomeControlComplication */;
+			targetProxy = A2000103000000000000EE01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -338,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchHomeControl Watch App/WatchHomeControl Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5V4FMXSU55;
@@ -368,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchHomeControl Watch App/WatchHomeControl Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5V4FMXSU55;
@@ -433,6 +543,60 @@
 			};
 			name = Release;
 		};
+		A2000113000000000000EE01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = WatchHomeControlComplication/WatchHomeControlComplication.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5V4FMXSU55;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WatchHomeControlComplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.reber.watchhomecontrol.watchkitapp.tvlampcomplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		A2000114000000000000EE01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = WatchHomeControlComplication/WatchHomeControlComplication.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5V4FMXSU55;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WatchHomeControlComplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.reber.watchhomecontrol.watchkitapp.tvlampcomplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -459,6 +623,15 @@
 			buildConfigurations = (
 				A1000E01000000000000EE01 /* Debug */,
 				A1000E02000000000000EE01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2000115000000000000EE01 /* Build configuration list for PBXNativeTarget "WatchHomeControlComplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2000113000000000000EE01 /* Debug */,
+				A2000114000000000000EE01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

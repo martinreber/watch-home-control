@@ -67,12 +67,40 @@ final class AppModel {
     let api: APIClient
     let keychain: KeychainStore
     let settings: SettingsStore
+    /// Drives the Complication's Foreground_Refresh and immediate reloads
+    /// (Req 6.4, 6.5, 7.11, 7.12). `nil` in tests that do not exercise the
+    /// Complication.
+    private let publisher: ComplicationPublisher?
 
-    init(api: APIClient, keychain: KeychainStore, settings: SettingsStore) {
+    init(
+        api: APIClient,
+        keychain: KeychainStore,
+        settings: SettingsStore,
+        publisher: ComplicationPublisher? = nil
+    ) {
         self.api = api
         self.keychain = keychain
         self.settings = settings
+        self.publisher = publisher
         self.baseURLField = settings.baseURL.absoluteString
+    }
+
+    // MARK: - Complication refresh (Req 7.11, 7.12)
+
+    /// Reports the TV_Lampe's current power from a Poll_Cycle fetch, driving a
+    /// throttled Foreground_Refresh (Req 7.12, 7.13).
+    private func notifyComplication(ofFetchedLamps lamps: [LampDTO]) {
+        publisher?.publish(tvLampPower: TVLampSelector.select(from: lamps).power)
+    }
+
+    /// Reports a lamp command's returned state so an in-app TV-Lampe toggle
+    /// reaches the Complication without waiting for the next Poll_Cycle
+    /// (Req 7.11, 7.12).
+    func notifyLampUpdated(_ lamp: LampDTO) {
+        guard lamp.displayName.range(of: TVLampSelector.nameNeedle, options: .caseInsensitive) != nil else {
+            return
+        }
+        publisher?.publish(tvLampPower: lamp.state.power)
     }
 
     // MARK: - Launch (Req 1.1 / 1.9 / 3)
@@ -163,6 +191,7 @@ final class AppModel {
 
         authErrorMessage = nil
         route = .control
+        publisher?.publishImmediately()
 
         // Verify reachability now that a Base_URL + key are configured (Req 3).
         await runHealthCheck()
@@ -192,6 +221,18 @@ final class AppModel {
     /// Presents the Setup_Screen for a Base_URL/API_Key change, pre-filling the
     /// current Base_URL (Req 1.10).
     func openConfig() {
+        baseURLField = settings.baseURL.absoluteString
+        route = .setup
+    }
+
+    // MARK: - Complication deep link (Req 6.2, 6.3)
+
+    /// Routes to the Setup_Screen when the Complication opens the Watch_App via
+    /// the Setup_Deep_Link — while Unpaired or after an Auth_Error. Unconditional:
+    /// it presents Setup regardless of the current route, including from Setup
+    /// itself, so the user always lands on the Pairing_Code input (Req 6.3).
+    func openSetupFromComplication() {
+        authErrorMessage = nil
         baseURLField = settings.baseURL.absoluteString
         route = .setup
     }
@@ -226,6 +267,7 @@ final class AppModel {
         authErrorMessage = Strings.pairingInvalid
         baseURLField = settings.baseURL.absoluteString
         route = .setup
+        publisher?.publishImmediately()
     }
 
     // MARK: - Health check (Req 3)
@@ -308,6 +350,7 @@ final class AppModel {
                 // are already main-actor isolated.
                 if case .success(let fetchedLamps) = lampOutcome {
                     lamps.applyPoll(fetchedLamps)
+                    self.notifyComplication(ofFetchedLamps: fetchedLamps)
                 }
                 if case .success(let fetchedSpeakers) = speakerOutcome {
                     speakers.applyPoll(fetchedSpeakers)

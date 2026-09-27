@@ -9,5 +9,16 @@
 	</dict>
 	<key>WKApplication</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>ch.reber.watchhomecontrol.setup</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>watchhomecontrol</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -139,7 +139,7 @@ flowchart TD
 | Target | Product | Bundle id | Contents |
 | --- | --- | --- | --- |
 | `WatchHomeControl Watch App` | watchOS app | `ch.reber.watchhomecontrol.watchkitapp` | existing app + new shared logic |
-| `WatchHomeControlComplication` | widget extension (embedded in the app) | `ch.reber.watchhomecontrol.watchkitapp.complication` | WidgetKit/AppIntents shells + membership of shared sources |
+| `WatchHomeControlComplication` | widget extension (embedded in the app) | `ch.reber.watchhomecontrol.watchkitapp.tvlampcomplication` | WidgetKit/AppIntents shells + membership of shared sources |
 | `WatchHomeControlTests` | unit tests | unchanged | tests the app target via `@testable import` |
 
 Shared logic is **not** extracted into a framework. A personal, single-developer app
@@ -674,7 +674,7 @@ unprefixed access group. After wiring the entitlements, verify on the watch:
 ### New target
 
 - Template: **Widget Extension** (watchOS), embedded in `WatchHomeControl Watch App`.
-- `PRODUCT_BUNDLE_IDENTIFIER = ch.reber.watchhomecontrol.watchkitapp.complication`
+- `PRODUCT_BUNDLE_IDENTIFIER = ch.reber.watchhomecontrol.watchkitapp.tvlampcomplication`
 - `WATCHOS_DEPLOYMENT_TARGET = 11.0`, `SWIFT_VERSION = 6.0`, `DEVELOPMENT_TEAM = 5V4FMXSU55`
 - `CODE_SIGN_ENTITLEMENTS` set on **both** targets.
 

@@ -103,6 +103,7 @@ cmd_build() {
     -scheme "$SCHEME" \
     -destination "id=${udid}" \
     -derivedDataPath "$DERIVED" \
+    -allowProvisioningUpdates \
     clean build
   ok "Build succeeded → ${APP_PATH}"
 }

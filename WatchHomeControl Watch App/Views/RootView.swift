@@ -41,7 +41,10 @@ struct RootView: View {
 
     init(model: AppModel) {
         self.model = model
-        _lampVM = State(initialValue: LampViewModel(api: model.api))
+        _lampVM = State(initialValue: LampViewModel(
+            api: model.api,
+            onCommandSucceeded: { [model] lamp in model.notifyLampUpdated(lamp) }
+        ))
         _speakerVM = State(initialValue: SpeakerViewModel(api: model.api))
     }
 
@@ -68,6 +71,12 @@ struct RootView: View {
         // opening config switches back to Setup where polling must stop.
         .onChange(of: model.route) { _, newRoute in
             updatePolling(for: scenePhase, route: newRoute)
+        }
+        // The Complication opens this URL while Unpaired or after an Auth_Error
+        // so the user can (re-)enter a Pairing_Code (Req 6.2/6.3).
+        .onOpenURL { url in
+            guard DeepLink.isSetup(url) else { return }
+            model.openSetupFromComplication()
         }
     }
 
