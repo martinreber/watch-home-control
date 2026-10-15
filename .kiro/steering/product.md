@@ -36,10 +36,14 @@ to the `home-control` Go backend running on the Raspberry Pi.
   absent values.
 - **The API key never leaves the Keychain** — never persisted to UserDefaults
   and never logged.
-- The default Base_URL is `https://192.168.1.122:8443` (the Pi on the LAN,
-  Go-native TLS); the LAN endpoint (both the HTTPS `:8443` and, for fallback,
-  the cleartext HTTP `:8080`) is reachable via the ATS `NSAllowsLocalNetworking`
-  exception. The self-signed cert must be trusted on the device (Trust_Profile).
+- The default Base_URL is `http://192.168.1.122:8080` (the Pi on the LAN,
+  cleartext HTTP), reachable via the ATS `NSAllowsLocalNetworking` exception.
+  The app performs no TLS trust handling (`URLSession.shared`, no challenge
+  delegate), so the backend's Go-native HTTPS listener on `:8443` with its
+  self-signed cert cannot be validated on-device (watchOS does not expose a
+  general certificate Trust_Profile screen). An HTTPS `:8443` Base_URL can still
+  be entered manually on the Setup screen, but only works if the device trusts
+  that cert; HTTP is the supported default.
 - The Pairing_Code is entered through an in-app **number pad**, not the system
   keyboard (watchOS cannot force a `TextField` to numeric-only input).
 

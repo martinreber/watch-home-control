@@ -20,7 +20,14 @@ enum BaseURLResolution: Equatable {
 
 enum BaseURLResolver {
     /// The default Base_URL used when none is configured (Req 7.7).
-    static let defaultBaseURL = URL(string: "https://192.168.1.122:8443")!
+    ///
+    /// Cleartext HTTP on `:8080` is used as the default because the app performs
+    /// no TLS trust handling (`URLSession.shared`, no challenge delegate), so the
+    /// backend's self-signed cert on `:8443` cannot be validated on-device
+    /// without a trust profile that watchOS does not expose. HTTP on the LAN is
+    /// permitted by the ATS `NSAllowsLocalNetworking` exception in Info.plist. A
+    /// user can still configure an HTTPS Base_URL manually on the Setup screen.
+    static let defaultBaseURL = URL(string: "http://192.168.1.122:8080")!
 
     /// Classifies `raw` without performing any I/O (Req 10.2 style purity).
     ///
